@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,6 +6,19 @@
     <title>Hello User</title>
 </head>
 <body>
-<h3 th:text="'Hello ' + ${UsersName} + '!'">Hello there </h3>
+
+<!-- Do THIS-->
+<h3>Hello there <span th:text="${UsersName}"></span>
+
+
+    <!--    This will not render when bo has no value-->
+    <span th:text="${bo}">Hello there</span>
+</h3>
+
+<!-- Less Preferable-->
+<!--<h3 th:text="${'Hello there '+UsersName}"></h3>-->
+
+
+<p th:text="${bio}"></p>
 </body>
 </html>
