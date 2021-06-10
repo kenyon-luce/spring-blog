@@ -7,6 +7,11 @@
 <body>
 
 <h1>Here are all the users</h1>
+<div th:each="user : ${users}">
+    <th:block th:if="${user.firstName.toLowerCase()=='kenyon'}">
+        <p th:text="${user.fullName}"></p>
+    </th:block>
+</div>
 
 </body>
 </html>
