@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Join</title>
+    <meta charset="UTF-8">
+    <title>Roll Dice</title>
 </head>
 <body>
 
-<h1>Guess a number between 1 and 6</h1>
-<h4 th:text="${n}"></h4>
-
-<!--<form action="/roll-dice/n" method="post">-->
-<!--    <input type="text" name="guess"/>-->
-<!--    <button>Submit</button>-->
-<!--</form>-->
-
-<!--first off, the exercise says i need 6 links for the numbers-->
-<!--each one sends a get request to the link with their respective numbers-->
 <a href="/roll-dice/1">1</a>
 <a href="/roll-dice/2">2</a>
 <a href="/roll-dice/3">3</a>
 <a href="/roll-dice/4">4</a>
 <a href="/roll-dice/5">5</a>
 <a href="/roll-dice/6">6</a>
+
+<!--<form action="/roll-dice" method="GET">-->
+<!--    <label for="guess"></label>-->
+<!--    <select id="guess" th:field="*{n}">-->
+<!--        <option th:each="i : ${#numbers.sequence(0, 6)}" th:value="${i}" th:text="${i}">-->
+<!--        </option>-->
+<!--    </select>-->
+<!--</form>-->
+
+<p>You guessed <span th:text="${guess}"></span> and rolled a <span th:text="${roll}"></span></p>
+
+<!--<th:block th:if="${roll == guess}">-->
+<!--    <p>YOU WON!</p>-->
+<!--</th:block>-->
+
+<!--<th:block th:if="${roll != guess}">-->
+<!--    <p>YOU LOST!</p>-->
+<!--</th:block>-->
+
+<div th:switch="${roll == guess}">
+    <p th:case="${true}">YOU WON!</p>
+    <p th:case="${false}">YOU LOST!</p>
+</div>
 
 </body>
 </html>
