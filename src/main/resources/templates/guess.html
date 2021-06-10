@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <title>User Guess</title>
@@ -7,4 +7,9 @@
     <body>
         <h1>You're guess is: <span th:text="${n}"></span></h1>
     </body>
+
+    <form action="/roll-dice/" method="post">
+        <input type="text" name="guess" id="guess"/>
+        <button>Submit</button>
+    </form>
 </html>
