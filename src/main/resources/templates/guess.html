@@ -6,12 +6,7 @@
 </head>
 <body>
 
-<a href="/roll-dice/1">1</a>
-<a href="/roll-dice/2">2</a>
-<a href="/roll-dice/3">3</a>
-<a href="/roll-dice/4">4</a>
-<a href="/roll-dice/5">5</a>
-<a href="/roll-dice/6">6</a>
+
 
 <!--<form action="/roll-dice" method="GET">-->
 <!--    <label for="guess"></label>-->
@@ -21,7 +16,20 @@
 <!--    </select>-->
 <!--</form>-->
 
-<p>You guessed <span th:text="${guess}"></span> and rolled a <span th:text="${roll}"></span></p>
+
+<th:block th:switch="${guess == null}">
+    <p th:case="${true}">Guess a number between 1 and 6</p>
+    <p th:case="*">You guessed <span th:text="${guess}"></span> and rolled a <span th:text="${roll}"></span></p>
+</th:block>
+
+<div>
+    <a href="/roll-dice/1">1</a>
+    <a href="/roll-dice/2">2</a>
+    <a href="/roll-dice/3">3</a>
+    <a href="/roll-dice/4">4</a>
+    <a href="/roll-dice/5">5</a>
+    <a href="/roll-dice/6">6</a>
+</div>
 
 <!--<th:block th:if="${roll == guess}">-->
 <!--    <p>YOU WON!</p>-->
@@ -31,10 +39,10 @@
 <!--    <p>YOU LOST!</p>-->
 <!--</th:block>-->
 
-<div th:switch="${roll == guess}">
+<th:block th:switch="${roll == guess}">
     <p th:case="${true}">YOU WON!</p>
-    <p th:case="${false}">YOU LOST!</p>
-</div>
+    <p th:case="*">YOU LOST!</p>
+</th:block>
 
 </body>
 </html>

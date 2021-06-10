@@ -18,7 +18,7 @@ public class DiceController {
     public String roll(
             Model model
     ) {
-        roll = random.nextInt(6) + 1;
+
         model.addAttribute("roll", roll);
         return "guess";
     }
@@ -28,6 +28,7 @@ public class DiceController {
             @PathVariable int n,
             Model model
     ) {
+        roll = random.nextInt(6) + 1;
         model.addAttribute("roll", roll);
         model.addAttribute("guess", n);
 
