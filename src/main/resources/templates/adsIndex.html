@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring Adlister</title>
+</head>
+<body>
+<h2>All Ads example:</h2>
+<div th:each="ad : ${ads}">
+  <h3 th:text="${ad.title}"></h3>
+  <p th:text="${ad.description}"></p>
+</div>
+</body>
+</html>
