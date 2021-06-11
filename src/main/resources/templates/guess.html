@@ -31,14 +31,6 @@
     <a href="/roll-dice/6">6</a>
 </div>
 
-<!--<th:block th:if="${roll == guess}">-->
-<!--    <p>YOU WON!</p>-->
-<!--</th:block>-->
-
-<!--<th:block th:if="${roll != guess}">-->
-<!--    <p>YOU LOST!</p>-->
-<!--</th:block>-->
-
 <th:block th:switch="${roll == guess}">
     <p th:case="${true}">YOU WON!</p>
     <p th:case="*">YOU LOST!</p>

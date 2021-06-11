@@ -15,19 +15,14 @@ public class DiceController {
     int roll;
 
     @GetMapping("/roll-dice")
-    public String roll(
-            Model model
-    ) {
-
+    public String guess(Model model) {
         model.addAttribute("roll", roll);
+
         return "guess";
     }
 
     @GetMapping("/roll-dice/{n}")
-    public String guess(
-            @PathVariable int n,
-            Model model
-    ) {
+    public String roll(@PathVariable int n, Model model) {
         roll = random.nextInt(6) + 1;
         model.addAttribute("roll", roll);
         model.addAttribute("guess", n);
