@@ -10,5 +10,19 @@
   <h3 th:text="${ad.title}"></h3>
   <p th:text="${ad.description}"></p>
 </div>
+
+<h2>A single ad:</h2>
+<div>
+  <h3>Check out the community's top voted ad:</h3>
+  <h3 th:text="${topAd.title}"></h3>
+  <p th:text="${topAd.description}"></p>
+</div>
+
+<h2>Searching ad</h2>
+<div>
+  <h3>I am searching for a fridge</h3>
+  <h3 th:text="${searchAd.title}"></h3>
+  <p th:text="${searchAd.description}"></p>
+</div>
 </body>
 </html>
