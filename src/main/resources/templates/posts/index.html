@@ -5,18 +5,19 @@
     <title>All Posts</title>
 </head>
 <body>
-<div th:each="post : ${posts}">
-    <p th:text="${post.title}"></p>
-    <p th:text="${post.body}"></p>
-    <p></p>
-</div>
 
-<form action="/posts">
+<form action="/posts" method="POST">
     <label for="title">Title</label>
     <input type="text" id="title">
-
-    <label for="body">Title</label>
-    <input type="text" id="body">
+    <br>
+    <label for="body">Body</label>
+    <textarea type="text" id="body"></textarea>
+    <input type="submit" value="Post">
 </form>
+
+<div th:each="post : ${posts}">
+    <h3 th:text="${post.id} + '). ' +${post.title}"></h3>
+    <h5 th:text="'  ' + ${post.body}"></h5>
+</div>
 </body>
 </html>
