@@ -19,8 +19,11 @@ public class PostController {
         model.addAttribute("posts", postDao.findAll());
 
         return "posts/index";
+        //^returns all ads into view
     }
 
-//    @PostMapping("/posts")
-//    public String createPost(@RequestParam(name="title"))
+    @PostMapping("/posts")
+    public String index(Model model){
+        model.addAttribute("posts", postDao);
+    }
 }
