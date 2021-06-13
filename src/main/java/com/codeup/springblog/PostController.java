@@ -22,8 +22,8 @@ public class PostController {
         //^returns all ads into view
     }
 
-    @PostMapping("/posts")
-    public String index(Model model){
-        model.addAttribute("posts", postDao);
-    }
+//    @PostMapping("/posts")
+//    public String index(Model model){
+//        model.addAttribute("posts", postDao);
+//    }
 }
