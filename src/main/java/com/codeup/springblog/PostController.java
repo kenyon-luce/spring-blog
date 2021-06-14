@@ -22,16 +22,10 @@ public class PostController {
 
     @RequestMapping(value = "/services/tasks/addDocument", method = RequestMethod.POST)
     @ResponseBody
-    public void set(@RequestParam("title") String title,@RequestParam("body") String body){
-
-// assign parameters to taskDocumentEntity by constructor args or setters
+    public void set(@RequestParam("title") String title,@RequestParam("body") String body, Model model){
         Post post = new Post();
-//        PostRepository.save(post);
         post.setTitle(title);
         post.setBody(body);
+        model.addAttribute("posts", post);
     }
-//    @PostMapping("/posts")
-//    public String index(Model model){
-//        model.addAttribute("posts", postDao);
-//    }
 }
