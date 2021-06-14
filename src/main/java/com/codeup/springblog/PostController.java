@@ -29,7 +29,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String create(@RequestParam("title") String title, @RequestParam("body") String body){
-        User owner = userDao.getById(1L);
+        User owner = userDao.getById(1L); //not sure what this does, looks like it looks at the id each post is associated with
 
         Post post = new Post(title, body, owner);
 //        post.setTitle(title);
@@ -40,10 +40,9 @@ public class PostController {
         return "redirect:/posts"; //redirects to a url instead of a filepath, compared to line 25
     }
 
-//    @PostMapping("/posts")
-//
-//    public String newPost(@ModelAttribute Post post) {
-//        postDao.save(post);
-//        return "redirect:/posts";
-//    }
+    @GetMapping("/posts/{id}")
+    public String post(@PathVariable long id, Model model) {
+        model.addAttribute("post", postDao.getById(id));
+        return "posts/show";
+    }
 }
