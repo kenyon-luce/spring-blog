@@ -20,6 +20,10 @@ public class Ad {
     @Column(nullable = false) //if we don't specify length, length defaults to 255
     private String description;
 
+    // spring relationships lecture
+    @OneToOne
+    private LecUsers owner; //connects my user objects
+
     public Ad(){
     }
 
