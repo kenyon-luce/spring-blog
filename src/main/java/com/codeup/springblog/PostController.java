@@ -23,7 +23,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    public String form(){
+    public String createForm(){
         return "posts/create"; //directs to the html with the form
     }
 
@@ -42,7 +42,26 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String post(@PathVariable long id, Model model) {
-        model.addAttribute("post", postDao.getById(id));
+        model.addAttribute("post", postDao.getById(id)); //postDao is needed to iterate through the SQL posts table and grab the post with a passed id
         return "posts/show";
+    }
+
+    @GetMapping("/posts/edit/{id}")
+    public String editForm(@PathVariable long id, Model model){
+        model.addAttribute("edit", postDao.getById(id));
+        return "posts/edit";
+    }
+
+    @PostMapping("/posts/edit/{id}")
+    public String edit(@PathVariable long id, Model model){
+        model.addAttribute("post", postDao.getById(id));
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/delete/{id}")
+    public String delete(@PathVariable long id){
+        postDao.deleteById(id);
+        return "redirect:/posts";
+        //since we deleted some posts, the ids are no longer in order, making a function that reorders the ids is not recommended because other tables may depend on these ids, maybe make a list function instead that doesn't refer to each posts id
     }
 }
