@@ -18,7 +18,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn (name = "user_id") //joined users with posts through a newly made column
-    private User owner;
+    private User user;
 
     public Post(){
     }
@@ -27,20 +27,21 @@ public class Post {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.user = owner;
     }
 
     public Post(String title, String body, User owner){
         this.title = title;
         this.body = body;
-        this.owner = owner;
+        this.user = owner;
     }
 
     public User getOwner(){
-        return owner;
+        return user;
     }
 
     public void setOwner(User owner){
-        this.owner = owner;
+        this.user = owner;
     }
 
     public long getId() {

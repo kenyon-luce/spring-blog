@@ -22,7 +22,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user") //has to be called on when joining in post class
     private List<Post> posts; //a user can have multiple posts
 
     public User(){ //initiates object so we can use constructors

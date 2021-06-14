@@ -6,9 +6,9 @@
 </head>
 <body>
 <div th:each="post : ${posts}">
-    <h3 th:text="${post.id} + '). ' +${post.title}"></h3>
+    <h3 th:text="${post.id} + '). ' + ${post.title}"></h3>
     <p th:text="${post.body}"></p>
-    <p th:text="${post.owner.email}"></p>
+    <p >Post created by: <span th:text="${post.owner.email}"></span></p>
 </div>
 </body>
 </html>
