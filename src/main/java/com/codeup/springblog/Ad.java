@@ -23,7 +23,7 @@ public class Ad {
 
     // spring relationships lecture
     @OneToOne
-    private LecUsers owner; //connects my user objects
+    private User owner; //connects my user objects
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ad")
     private List<AdImage> images;

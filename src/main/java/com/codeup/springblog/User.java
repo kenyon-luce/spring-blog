@@ -3,10 +3,10 @@ package com.codeup.springblog;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
-
 //this is from the spring relationships lecture
 public class User {
     @Id
@@ -21,6 +21,9 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Post> posts; //a user can have multiple posts
 
     public User(){ //initiates object so we can use constructors
 

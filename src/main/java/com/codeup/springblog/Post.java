@@ -16,12 +16,31 @@ public class Post {
     @Column(nullable = false) //if we don't specify length, length defaults to 255
     private String body;
 
+    @ManyToOne
+    @JoinColumn (name = "user_id") //joined users with posts through a newly made column
+    private User owner;
+
     public Post(){
     }
 
-    public Post(String title, String body) {
+    public Post(long id, String title, String body, User owner) {
+        this.id = id;
         this.title = title;
         this.body = body;
+    }
+
+    public Post(String title, String body, User owner){
+        this.title = title;
+        this.body = body;
+        this.owner = owner;
+    }
+
+    public User getOwner(){
+        return owner;
+    }
+
+    public void setOwner(User owner){
+        this.owner = owner;
     }
 
     public long getId() {
