@@ -1,6 +1,7 @@
 package com.codeup.springblog;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="ads") //creates table in adlister_db after running
@@ -24,8 +25,18 @@ public class Ad {
     @OneToOne
     private LecUsers owner; //connects my user objects
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ad")
+    private List<AdImage> images;
+    //^^add this to constructors and make getters/setters
+
     public Ad(){
     }
+
+//    public Ad(){
+//        this.title = title;
+//        this.description = description;
+//        this.owner = owner
+//    }
 
     public long getId() {
         return id;
