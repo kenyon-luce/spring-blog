@@ -16,16 +16,30 @@ public class PostController {
     public String index(Model model) {
         model.addAttribute("posts", postDao.findAll());
 
-        return "posts/index";
+        return "posts/index"; //needed to initialize model
         //^returns all ads into view
     }
 
-    @RequestMapping(value = "/services/tasks/addDocument", method = RequestMethod.POST)
-    @ResponseBody
-    public void set(@RequestParam("title") String title,@RequestParam("body") String body, Model model){
+    @GetMapping("/posts/create")
+    public String form(){
+        return "posts/create"; //directs to the html with the form
+    }
+
+    @PostMapping("/posts/create")
+    public String create(@RequestParam("title") String title, @RequestParam("body") String body){
         Post post = new Post();
         post.setTitle(title);
         post.setBody(body);
-        model.addAttribute("posts", post);
+
+        postDao.save(post); //inserts post into sql
+//        return "redirect:/posts/" + savedPost.getId(); //'adds' new post id to the url, this isn't needed since we haven't made a view by id method
+        return "redirect:/posts"; //redirects to a url instead of a filepath, compared to line 25
     }
+
+//    @PostMapping("/posts")
+//
+//    public String newPost(@ModelAttribute Post post) {
+//        postDao.save(post);
+//        return "redirect:/posts";
+//    }
 }
