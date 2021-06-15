@@ -17,12 +17,14 @@
 <!--</form>-->
 
 <!--RECREATING FORM USING FORM MODEL BONDING-->
-<form action="@{/posts/create}" th:method="POST" th:object="${post}">
+<form action="/posts/create" method="POST" th:object="${post}">
+    Title:
     <input th:field="*{title}">
     <br>
+    Body:
     <input th:field="*{body}">
     <br>
-    <input type="submit" value="Create Post">
+    <input type="submit" value="Post">
 </form>
 
 </body>
