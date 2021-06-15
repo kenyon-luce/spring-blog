@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>Edit Post</h1>
-<form action="/posts/edit" method="POST">
+<form action="/posts/edit/" method="POST">
   <label for="title">Title</label>
-  <input type="text" id="title" name="title" th:text="${edit.title}">
+  <input type="text" id="title" name="title" th:value="${edit.title}">
   <br>
   <label for="body">Body</label>
   <textarea type="text" id="body" name="body" th:text="${edit.body}"></textarea>

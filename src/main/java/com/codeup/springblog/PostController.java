@@ -49,8 +49,10 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String create(@ModelAttribute Post post){
-        postDao.save(post);
-        return "redirect:/posts";
+        User user = userDao.getById(1L);
+        post.setOwner(user);
+        /*Post savedPost =*/ postDao.save(post);
+        return "redirect:/posts/";// + savedPost.getId();
     }
     //RECREATING GET MAPPING USING FORM MODEL BONDING (end)
 
