@@ -83,4 +83,10 @@ public class PostController {
         return "redirect:/posts";
         //since we deleted some posts, the ids are no longer in order, making a function that reorders the ids is not recommended because other tables may depend on these ids, maybe make a list function instead that doesn't refer to each posts id
     }
+
+    @GetMapping("/posts/clear")
+    public String clear(){
+        postDao.deleteAll();
+        return "redirect:/posts";
+    }
 }
