@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.*;
 public class PostController {
     private final PostRepository postDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
-    public PostController(PostRepository postDao, UserRepository userDao) { //injected user repo
+    public PostController(PostRepository postDao, UserRepository userDao, EmailService emailService) { //injected user repo
         this.postDao = postDao;
         this.userDao = userDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/posts")
