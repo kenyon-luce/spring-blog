@@ -1,4 +1,6 @@
-package com.codeup.springblog;
+package com.codeup.springblog.models;
+
+import com.codeup.springblog.models.User;
 
 import javax.persistence.*;
 

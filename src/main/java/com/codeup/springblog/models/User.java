@@ -1,6 +1,4 @@
-package com.codeup.springblog;
-
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+package com.codeup.springblog.models;
 
 import javax.persistence.*;
 import java.util.List;
