@@ -25,7 +25,7 @@ public class Post {
     public Post(){
     }
 
-    public Post(long id, String title, String body, User owner) {
+    public Post(long id, String title, String body, User owner) { //note for myself, what eould be named "user" is named "owner" here
         this.id = id;
         this.title = title;
         this.body = body;
