@@ -13,7 +13,7 @@ public class UserWithRoles extends User implements UserDetails { //this class ex
     }
 
     @Override
-    public Collection< ? extends GrantedAuthority > getAuthorities(){
+    public Collection< ? extends GrantedAuthority > getAuthorities(){ // <-- ehh?
         String roles = ""; //not using authorization part for this so we will leave this empty
         return AuthorityUtils.commaSeparatedStringToAuthorityList(roles); //  <-- ehh?
     }

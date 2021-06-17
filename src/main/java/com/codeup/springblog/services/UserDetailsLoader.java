@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class UserDetailsLoader implements UserDetailsService {
-    private UserRepository users;
+    private final UserRepository users;
 
     public UserDetailsLoader(UserRepository users){
         this.users = users;
