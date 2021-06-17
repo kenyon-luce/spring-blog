@@ -60,7 +60,7 @@ public class PostController {
         post.setOwner(user);
         Post savedPost = postDao.save(post);
         emailService.prepareAndSend(savedPost, "testing", "testing body");
-        return "redirect:/posts/";// + savedPost.getId();
+        return "redirect:/posts";// + savedPost.getId();
     }
     //RECREATING GET MAPPING USING FORM MODEL BONDING (end)
 
