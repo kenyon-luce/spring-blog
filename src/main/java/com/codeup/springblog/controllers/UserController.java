@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private UserRepository users;
-    private PasswordEncoder passwordEncoder; //class hasn't been created yet
+    private final UserRepository users;
+    private final PasswordEncoder passwordEncoder; //class hasn't been created yet
 
     public UserController(UserRepository users, PasswordEncoder passwordEncoder) {
         this.users = users;
